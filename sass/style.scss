@@ -31,10 +31,12 @@ body {
   
   form {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   input {
-    padding: 15px 10px;
+    height: 40px;
     outline: none;
     width: 400px;
   }
@@ -84,10 +86,9 @@ body {
   }
   
   .btn-add {
-    padding: 5px 15px;
+    height: 46.3px;
     border: none;
     color: white;
-    font-family: fantasy;
     background-color: teal;
     font-size: 1.4rem;
     outline: none;
