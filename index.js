@@ -7,25 +7,36 @@ addButton.addEventListener("click", (event) => {
   event.preventDefault();
 
   const text = input.value; //texto exscrito en input
-  const li = document.createElement("li"); // creacion de li
-  const p = document.createElement("p"); //creacion de p
-  p.textContent = text; // agregar contenido a p
 
-  li.appendChild(p); // a ese li creado le ponemos p que va tener un texto
-  li.appendChild(addDeleteButton())
-  ul.appendChild(li); //a UL le vamos agregar el LI nuevo
+  if (text !== "") {
+    const li = document.createElement("li"); // creacion de li
+    const p = document.createElement("p"); //creacion de p
+    p.textContent = text; // agregar contenido a p
+
+    li.appendChild(p); // a ese li creado le ponemos p que va tener un texto
+    li.appendChild(addDeleteButton());
+    ul.appendChild(li); //a UL le vamos agregar el LI nuevo
+
+    input.value = "";
+    empty.style.display = "none";
+  }
 });
 
+const addDeleteButton = () => {
+  const deleteButton = document.createElement("button");
 
-const addDeleteButton = () =>{
-    const deleteButton = document.createElement('button');
+  deleteButton.textContent = "X";
+  deleteButton.className = "btn-delete";
 
-    deleteButton.textContent = "X"
-    deleteButton.className = "btn-delete"
+  deleteButton.addEventListener("click", (element) => {
+    const item = element.target.parentElement; //el parent elemnt hace referencia a su elemento PADRE por eso selecciona al LI !! PARA eliminarlo
+    ul.removeChild(item);
 
- deleteButton.addEventListener('click', (element)=>{
- const item = element.target.parentElement; //el parent elemnt hace referencia a su elemento PADRE por eso selecciona al LI !! PARA eliminarlo
-   ul.removeChild(item) 
-})
-return deleteButton;
-}
+    const items = document.querySelectorAll("li");
+
+    if (items.length === 0) {
+      empty.style.display = "block";
+    }
+  });
+  return deleteButton;
+};
