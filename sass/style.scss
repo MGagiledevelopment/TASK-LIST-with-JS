@@ -16,7 +16,7 @@ body {
   .container {
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 30%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
@@ -101,4 +101,21 @@ body {
   
   .empty {
     color: darkslategrey;
+  }
+
+  .validation{
+    border-color: red;
+  }
+
+  .btn-refresh{
+    background-color: red;
+    width:100px;
+    height: 50px;
+  }
+
+  footer{
+    display:flex;
+    justify-content: center;
+    font-size: 11px;
+
   }
